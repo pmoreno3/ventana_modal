@@ -1,0 +1,99 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f9;
+}
+
+/* Fondo principal */
+main {
+  padding: 80px;
+  text-align: center;
+  transition: filter 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+.contenido{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.contenido aside{
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+.contenido aside p{
+    text-align: left;
+}
+.contenido article{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contenido img {
+  width: 80%;
+  height: auto;
+  display: block;
+}
+
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1000; /* 🔥 Aquí la clave */
+}
+
+/* Contenido del modal */
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  position: relative;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+/* Botón de cierre */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Mostrar modal cuando el checkbox está activado */
+#modal-toggle:checked ~ .modal {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Animación de entrada */
+#modal-toggle:checked ~ .modal .modal-content {
+  transform: scale(1);
+}
+
+/* Desenfocar el fondo cuando el modal está abierto */
+#modal-toggle:checked ~ .contenido {
+  filter: blur(5px);
+}
+footer{
+    text-align: right;
+}
